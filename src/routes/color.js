@@ -41,7 +41,7 @@ router.put("/colors/:id", (req, res) => {
 
 // Delete color
 router.delete("/colors/:id", (req, res) => {
-    const { _id } = req.params;
+    const { id } = req.params;
     colorSchema
         .remove({ id: id })
         .then((data) => res.json(data))
