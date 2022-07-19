@@ -1,0 +1,32 @@
+### Create Color
+POST http://localhost:9000/api/colors HTTP/1.1
+Content-Type: application/json
+
+{
+    "_id": "22",
+    "name": "azul",
+    "year": "2021",
+    "color": "#0000ff",
+    "pantone_value": "19-4052"
+}
+
+### Get Colors
+GET http://localhost:9000/api/colors HTTP/1.1
+
+### Get Color by ID
+GET http://localhost:9000/api/colors/22 HTTP/1.1
+
+### Update Color
+PUT http://localhost:9000/api/colors/22 HTTP/1.1
+Content-Type: application/json
+
+{
+    "_id": "22",
+    "name": "azul",
+    "year": "2021",
+    "color": "#0000ff",
+    "pantone_value": "19-4052"
+}
+
+### Delete Color
+DELETE http://localhost:9000/api/colors/22 HTTP/1.1
