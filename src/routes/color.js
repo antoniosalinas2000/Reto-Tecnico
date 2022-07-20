@@ -4,15 +4,15 @@ const router = express.Router();
 
 // Create color
 router.post("/colors", (req, res) => {
-    const { id, name, year, color_, pantone_value } = req.body;
+    const { _id, name, year, color, pantone_value } = req.body;
 
-    if (id && name && year && color_ && pantone_value) {
-        const color = colorSchema(req.body);
-        color.save()
+    if (_id && name && year && color && pantone_value) {
+        const colors = colorSchema(req.body);
+        colors.save()
             .then((data) => res.json(data))
             .catch((error) => res.json({ message: error }))
     } else {
-        res.status(500).json({ error: 'There was an error.' });
+        res.status(400).json({ error: 'There was an error. Attributes probably missing.' });
     }
 });
 
