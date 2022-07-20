@@ -15,7 +15,6 @@ app.get("/", (req, res) => {
     res.send("Welcome to the ManduColor API");
 });
 
-
 mongoose
     .connect(process.env.MONGODB_URI)
     .then(() => console.log("Connected to MongoDB Atlas"))
