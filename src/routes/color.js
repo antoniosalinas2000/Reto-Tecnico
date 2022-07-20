@@ -11,8 +11,10 @@ router.post("/colors", (req, res) => {
         colors.save()
             .then((data) => res.json(data))
             .catch((error) => res.json({ message: error }))
+    } else if (!_id || !name || !year || !color || !pantone_value) {
+        res.status(400).json({ error: 'Attempt registration with missing attributes or incorrect type' });
     } else {
-        res.status(400).json({ error: 'There was an error. Attributes probably missing.' });
+        res.status(500).json({ error: 'There was an error.' });
     }
 });
 
