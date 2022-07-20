@@ -1,5 +1,5 @@
 # Reto-Tecnico-Mandu
- <br />En Mandü necesitamos crear un API de colores para todas nuestras plataformas, para ello se requiere
+ <br /> <br />En Mandü necesitamos crear un API de colores para todas nuestras plataformas, para ello se requiere
 que esta esté correctamente desarrollada y documentada.
  <br />Los requerimientos son los siguientes:
  <br />El API puede estar escrita en cualquier lenguaje de programación y puede utilizar cualquier
@@ -14,11 +14,11 @@ motor de base de datos.
 respuestas deben ser JSON.
  <br />• La estructura del color debe ser la siguiente:
  <br />{
- <br />    "_id": 22,
- <br />    "name": "azul",
- <br />    "year": 2021,
- <br />    "color": "#0000ff",
- <br />    "pantone_value": "19-4052"
+ <br /> &nbsp;   "_id": 22,
+ <br /> &nbsp;   "name": "azul",
+ <br /> &nbsp;   "year": 2021,
+ <br /> &nbsp;   "color": "#0000ff",
+ <br /> &nbsp;   "pantone_value": "19-4052"
  <br />}
  <br />• Se requiere que la documentación del API esté en una colección en Postman.
  <br />o Opcional: Tener casos de prueba en donde se realicen tanto el flujo feliz como flujos
