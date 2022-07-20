@@ -14,11 +14,11 @@ motor de base de datos.
 respuestas deben ser JSON.
  <br />• La estructura del color debe ser la siguiente:
  <br />{
- <br /> &nbsp;   "_id": 22,
- <br /> &nbsp;   "name": "azul",
- <br /> &nbsp;   "year": 2021,
- <br /> &nbsp;   "color": "#0000ff",
- <br /> &nbsp;   "pantone_value": "19-4052"
+ <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"_id": 22,
+ <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "azul",
+ <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"year": 2021,
+ <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"color": "#0000ff",
+ <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pantone_value": "19-4052"
  <br />}
  <br />• Se requiere que la documentación del API esté en una colección en Postman.
  <br />o Opcional: Tener casos de prueba en donde se realicen tanto el flujo feliz como flujos
