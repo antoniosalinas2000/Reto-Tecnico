@@ -4,10 +4,16 @@ const router = express.Router();
 
 // Create color
 router.post("/colors", (req, res) => {
-    const color = colorSchema(req.body);
-    color.save()
-        .then((data) => res.json(data))
-        .catch((error) => res.json({ message: error }))
+    const { id, name, year, color_, pantone_value } = req.body;
+
+    if (id && name && year && color_ && pantone_value) {
+        const color = colorSchema(req.body);
+        color.save()
+            .then((data) => res.json(data))
+            .catch((error) => res.json({ message: error }))
+    } else {
+        res.status(500).json({ error: 'There was an error.' });
+    }
 });
 
 // Get all colors
@@ -43,7 +49,7 @@ router.put("/colors/:id", (req, res) => {
 router.delete("/colors/:id", (req, res) => {
     const { id } = req.params;
     colorSchema
-        .remove({ id: id })
+        .remove({ _id: id })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 });
