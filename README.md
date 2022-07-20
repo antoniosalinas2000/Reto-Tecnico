@@ -1,4 +1,4 @@
-# Reto-Tecnico-Mandu
+# Reto-Técnico-Mandu
 En Mandü necesitamos crear un API de colores para todas nuestras plataformas, para ello se requiere
 que esta esté correctamente desarrollada y documentada.
  <br />Los requerimientos son los siguientes:
