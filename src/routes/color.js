@@ -18,7 +18,7 @@ async function alreadyHaveId(id) {
 
 // Create color
 router.post("/colors", [check('_id').isNumeric(), check('name').isLength({ min: 3 }),
-    check('year').isNumeric(), check('color').isLength({ min: 4 }), check('color').contains('#'),
+    check('year').isNumeric(), check('color').isHexColor(),
     check('pantone_value').isLength({ min: 3 })
 ], (req, res) => {
     const { _id, name, year, color, pantone_value } = req.body;
@@ -26,17 +26,17 @@ router.post("/colors", [check('_id').isNumeric(), check('name').isLength({ min: 
 
     //  res.status(400).json({ message: 'Color already exists' });
     if (!errors.isEmpty()) {
-        return res.status(422).json({ errors: errors.array() });
+        res.status(422).json({ errors: errors.array() });
     } else if (_id && name && year && color && pantone_value) {
         const colors = colorSchema(req.body);
         colors.save()
             .then((data) => res.json(data))
             .catch((error) => res.json({ message: error }));
-        return res.status(201).json({ message: 'Color created succesfully' });
+        res.status(201).json({ message: 'Color created succesfully' });
     } else if (!_id || !name || !year || !color || !pantone_value) {
-        return res.status(400).json({ error: 'Attempt registration with missing attributes or incorrect type' });
+        res.status(422).json({ error: 'Attempt registration with missing attributes or incorrect type' });
     } else {
-        return res.status(500).json({ error: 'There was an error.' });
+        res.status(500).json({ error: 'There was an error.' });
     }
 });
 
@@ -61,7 +61,7 @@ router.get("/colors/:id", (req, res) => {
 
 // Update color
 router.put("/colors/:id", [check('name').isLength({ min: 3 }),
-    check('year').isNumeric(), check('color').isLength({ min: 4 }), check('color').contains('#'),
+    check('year').isNumeric(), check('color').isHexColor(),
     check('pantone_value').isLength({ min: 3 })
 ], (req, res) => {
     const { id } = req.params;
