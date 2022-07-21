@@ -4,6 +4,9 @@ const colorSchema = require("../models/color");
 const router = express.Router();
 const { check, validationResult } = require('express-validator')
 
+/*  Intente implementar esta función para poder hacer el POST verificando si el Id del Color siendo agregado
+    ya existe, no tuve éxito.
+    
 async function alreadyHaveId(id) {
     let foundColor = await colorSchema.findOne({ _id: id });
     if (foundColor) {
@@ -11,7 +14,7 @@ async function alreadyHaveId(id) {
     } else {
         return false;
     }
-};
+};*/
 
 // Create color
 router.post("/colors", [check('_id').isNumeric(), check('name').isLength({ min: 3 }),
@@ -29,11 +32,11 @@ router.post("/colors", [check('_id').isNumeric(), check('name').isLength({ min: 
         colors.save()
             .then((data) => res.json(data))
             .catch((error) => res.json({ message: error }));
-        res.status(201).json({ message: 'Color created succesfully' });
+        return res.status(201).json({ message: 'Color created succesfully' });
     } else if (!_id || !name || !year || !color || !pantone_value) {
-        res.status(400).json({ error: 'Attempt registration with missing attributes or incorrect type' });
+        return res.status(400).json({ error: 'Attempt registration with missing attributes or incorrect type' });
     } else {
-        res.status(500).json({ error: 'There was an error.' });
+        return res.status(500).json({ error: 'There was an error.' });
     }
 });
 
